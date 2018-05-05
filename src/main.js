@@ -17,5 +17,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-
-// 路由就是根据网址的不同，返回不同的内容
