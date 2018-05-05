@@ -16,12 +16,12 @@
     data() {
       return {
         swiperOption: {
-          el: '.swiper-pagination',
+          pagination: '.swiper-pagination',
           loop: true
         },
         swiperList: [
-          {id: '0001', imgUrl: 'http://img1.vbooking.net/prd/201804/20/20180420095654886.jpg'},
-          {id: '0002', imgUrl: 'http://img1.vbooking.net/prd/201804/18/20180418151500278.jpg'}
+          {id: '0001', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1801/1a/94428c6dea109402.jpg_640x200_2cf590d8.jpg'},
+          {id: '0002', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1802/42/7c92b9a381e46402.jpg_640x200_1cdce2a4.jpg'}
         ]
       }
     }
@@ -29,11 +29,12 @@
 </script>
 
 <style scoped lang="stylus" type="text/stylus">
+  .wrapper >>> .swiper-pagination-bullet-active
+    background #fff !important
   .wrapper
     width 100%
     overflow hidden
-    height 0
-    padding-bottom 31.25%
+    height 31.25%
     .swiper-img
       width 100%
 </style>
