@@ -5,7 +5,7 @@
           <div class="title border-topbottom">当前城市</div>
           <div class="button-list">
             <div class="button-wrapper">
-              <button class="button">北京</button>
+              <button class="button">{{this.$store.state.city}}</button>
             </div>
           </div>
         </div>
@@ -13,14 +13,15 @@
           <div class="title border-topbottom">热门城市</div>
           <div class="button-list">
             <div class="button-wrapper"  v-for="item in hot" :key="item.id">
-              <button class="button">{{item.name}}</button>
+              <button class="button" @click="handleCityClick(item.name)">{{item.name}}</button>
             </div>
           </div>
         </div>
         <div class="area" v-for="(item, key) in cities" :key="key" :ref="key">
           <div class="title border-topbottom">{{key}}</div>
           <div class="item-list" v-for="innerItem in item" :key="innerItem.id">
-            <div class="item border-bottom">{{innerItem.name}}</div>
+            <div class="item border-bottom"
+                 @click="handleCityClick(innerItem.name)">{{innerItem.name}}</div>
           </div>
         </div>
       </div>
@@ -45,6 +46,12 @@
           let ele = this.$refs[this.letter][0]
           this.scroll.scrollToElement(ele)
         }
+      }
+    },
+    methods: {
+      handleCityClick (city) {
+        this.$store.commit('changeCity', city)
+        this.$router.push('/')
       }
     }
   }
