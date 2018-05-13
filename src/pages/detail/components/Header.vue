@@ -26,6 +26,7 @@
     },
     methods: {
       handleScroll () {
+        console.log('scroll')
         const scrollTop = document.documentElement.scrollTop
         if (scrollTop > 53) {
           let opacity = scrollTop / 140
@@ -37,9 +38,13 @@
         }
       }
     },
-    activated() {
+    activated () {
       // 监听scroll事件
       window.addEventListener('scroll', this.handleScroll)
+    },
+    deactivated () { // deactivated中，离开页面时执行
+      // 移除scroll事件
+      window.removeEventListener('scroll', this.handleScroll)
     }
   }
 </script>
