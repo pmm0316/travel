@@ -27,7 +27,9 @@
       return {
         swiperOptions: {
           pagination: '.swiper-pagination',
-          paginationType: 'fraction'
+          paginationType: 'fraction',
+          observer: true,
+          observeParents: true
         }
       }
     },

@@ -1,34 +1,41 @@
 <template>
   <div>
     <div class="banner" @click="handleBannerClick">
-      <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg" alt="">
+      <img class="banner-img" :src="bannerImg" alt="">
       <div class="banner-info">
-        <div class="banner-title">大连圣亚海洋世界</div>
+        <div class="banner-title">{{sightName}}</div>
         <div class="banner-number">
           <span class="iconfont back-icon">&#xe604;</span>
-          39
+          {{this.gallaryImgs.length}}
         </div>
       </div>
     </div>
-    <common-gallary :imgs="imgs"
-                    v-show="showGallary"
-                    @close="handleGallaryClose"></common-gallary>
+    <fade-animation>
+      <common-gallary :imgs="gallaryImgs"
+                      v-show="showGallary"
+                      @close="handleGallaryClose"></common-gallary>
+    </fade-animation>
   </div>
 </template>
 
 <script>
   import CommonGallary from 'common/gallary/Gallary'
+  import FadeAnimation from 'common/fade/Fade'
   export default {
     name: 'DetailBanner',
+    props: {
+      sightName: String,
+      bannerImg: String,
+      gallaryImgs: Array
+    },
     data () {
       return {
-        showGallary: false,
-        imgs: ['http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg',
-          'http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg']
+        showGallary: false
       }
     },
     components: {
-      CommonGallary
+      CommonGallary,
+      FadeAnimation
     },
     methods: {
       handleBannerClick () {
